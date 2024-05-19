@@ -13,8 +13,12 @@ for rows.Next() {
 	rec := Rows2Map(rows)
 	data = append(data, rec)
 }
-	
 ```
 
+check also [go_sql_raw_test.go](go_sql_raw_test.go)
+
 ## TODO
-* ...
+* type converting from DB to go in function `update`
+
+## Credits
+* module inspired by https://gist.github.com/SchumacherFM/69a167bec7dea644a20e
