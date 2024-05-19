@@ -15,7 +15,7 @@ for rows.Next() {
 }
 ```
 
-check also [go_sql_raw_test.go](go_sql_raw_test.go)
+check also [go_sql_raw_test.go](tests/go_sql_raw_test.go)
 
 ## TODO
 * type converting from DB to go in function `update`
