@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"strings"
 )
 
 type RawSqlType map[string]interface{}
@@ -40,17 +41,7 @@ func (s *mapRawSqlScan) update(rows *sql.Rows) error {
 
 	for i := 0; i < s.colCount; i++ {
 		if rb, ok := s.cp[i].(*sql.RawBytes); ok {
-			val := string(*rb)
-			var parsed any
-			switch s.colTypes[i].DatabaseTypeName() {
-			case "DECIMAL":
-				parsed, _ = strconv.ParseFloat(val, 64)
-			case "INT":
-				parsed, _ = strconv.ParseInt(val, 10, 64)
-			default:
-				parsed = val
-			}
-			s.row[s.colNames[i]] = parsed
+			s.row[s.colNames[i]] = convertType(rb, s.colTypes[i].DatabaseTypeName())
 			*rb = nil
 		} else {
 			return fmt.Errorf("Cannot convert index %d column %s to type *sql.RawBytes", i, s.colNames[i])
@@ -77,4 +68,21 @@ func newMapRawSqlScan(columnNames []string, columnTypes []*sql.ColumnType) *mapR
 		s.cp[i] = new(sql.RawBytes)
 	}
 	return s
+}
+
+func convertType(rb *sql.RawBytes, databaseTypeName string) any {
+	databaseTypeName = strings.ToUpper(databaseTypeName)
+
+	val := string(*rb)
+	var parsed any
+
+	if strings.HasPrefix(databaseTypeName, "INT") {
+		parsed, _ = strconv.ParseInt(val, 10, 64)
+	} else if strings.HasPrefix(databaseTypeName, "DECIMAL") {
+		parsed, _ = strconv.ParseFloat(val, 64)
+	} else {
+		parsed = val
+	}
+
+	return parsed
 }
