@@ -5,7 +5,5 @@ get::
 
 
 tests::
-	rm -rf test.db
-	sqlite3 -batch test.db ""
-	#go test -v ./...
-	go test -modfile=go_test.mod ./... -v
+	rm -rf tests/test.db
+	go test -count=1 -modfile=go_test.mod ./... -v
