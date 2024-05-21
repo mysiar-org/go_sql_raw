@@ -1,4 +1,5 @@
 # go-sql-raw
+![tests](https://github.com/mysiar-org/go_sql_raw/actions/workflows/go.yml/badge.svg)
 
 The main reason that this module has been created was generic querying database without knowing table structure. 
 
