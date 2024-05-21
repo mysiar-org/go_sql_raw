@@ -4,6 +4,12 @@ The main reason that this module has been created was generic querying database 
 
 ## How to use it
 
+Install
+```bash
+go get github.com/mysiar-org/go-sql-raw
+```
+
+Example use
 ```go
 rows, err: = Db.Query("SELECT * FROM album")
 
