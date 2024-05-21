@@ -21,9 +21,9 @@ jobs:
       with:
         go-version: '1.22'
 
-    - name: go env
-      run: |
-        echo "::set-env name=GOCACHE::$(go env GOCACHE)"
+#    - name: go env
+#      run: |
+#        echo "::set-env name=GOCACHE::$(go env GOCACHE)"
 
     - name: Dependencies
       run: make get
