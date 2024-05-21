@@ -34,7 +34,7 @@ func Test(t *testing.T) {
 }
 
 func setupDb() *sql.DB {
-	const file string = "test.db"
+	const file string = "test.db?mode=memory"
 	db, err := sql.Open("sqlite3", file)
 	chkError(err)
 	_, err = db.Exec(dropTable())
