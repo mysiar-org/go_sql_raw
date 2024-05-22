@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  tests:
+  gosec_tests:
     runs-on: self-hosted
     env:
       GO111MODULE: on

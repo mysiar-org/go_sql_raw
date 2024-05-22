@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  unit_test:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
