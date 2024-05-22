@@ -5,5 +5,9 @@ get::
 
 
 tests::
-	rm -rf tests/test.db
+	rm -f tests/test.db
 	go test -count=1 -modfile=go_test.mod ./... -v
+
+coverage::
+	rm -f tests/test.db
+	go test -count=1 -modfile=go_test.mod -cover -coverpkg=./... -coverprofile=coverage.out ./...
