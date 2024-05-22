@@ -3,8 +3,6 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/mysiar-org/go_sql_raw.svg)](https://pkg.go.dev/github.com/mysiar-org/go-sql-raw)
 [![Gosec](https://github.com/mysiar-org/go_sql_raw/actions/workflows/gosec.yml/badge.svg)](https://github.com/mysiar-org/go_sql_raw/actions/workflows/gosec.yml)
 
-![coverage](docs/coverage.svg) ![coverage](docs/ratio.svg) ![coverage](docs/time.svg)
-
 The main reason that this module has been created was generic querying database without knowing table structure. 
 
 ## How to use it
