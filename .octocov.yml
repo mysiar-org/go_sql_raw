@@ -15,6 +15,12 @@ report:
   datastores:
     - artifact://${GITHUB_REPOSITORY}
 codeToTestRatio:
+  codeToTestRatio:
+    code:
+      - '**/*.go'
+      - '!**/*_test.go'
+    test:
+      - '**/*_test.go'
   badge:
     path: docs/ratio.svg
 testExecutionTime:
